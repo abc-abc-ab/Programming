@@ -2,7 +2,7 @@ let x, y, dx, dy;
 ((d, t)=>{
   try{
     const rad2deg = rad => (rad / Math.PI) * 180,
-    deg2rad = deg => (rad / 180) * Math.PI,
+    deg2rad = deg => (deg / 180) * Math.PI,
     p = d.getElementById("paragraph"),
     cnv = d.querySelector("canvas"),
     ctx = cnv.getContext("2d"),
