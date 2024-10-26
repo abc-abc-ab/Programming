@@ -16,7 +16,7 @@ let x, y, dx = 0;
       ctx.fill();
     ctx.closePath();
     t.setInterval(()=>{
-      ctx.clearRect(20, 20, x-30, y-30)
+      ctx.clearRect(20, 20, width-30, height-30)
       ctx.beginPath();
       ctx.arc(x, y, 10, 0, deg2rad(360));
       ctx.fillStyle = "#10a0ff";
