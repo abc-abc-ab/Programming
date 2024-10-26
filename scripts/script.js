@@ -26,12 +26,13 @@ let x, y, dx = 0;
     }, 10)
     t.addEventListener("keydown", (e)=>{
       if (e.key === "ArrowLeft"){
-        dx = -10;
+        dx = -4;
       }
       else if(e.key === "ArrowRight"){
-        dx = 10;
+        dx = 4;
       }
-      else{
+    });t.addEventListener("keyup", (e)=>{
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight"){
         dx = 0;
       }
     })
