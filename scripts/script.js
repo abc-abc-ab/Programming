@@ -10,7 +10,10 @@ let x, y, dx, dy;
     height = cnv.height;
     ctx.strokeRect(0, 0, width, height);
     ctx.beginPath();
-      ctx.arc();
+      ctx.arc(width/2, height/2, 25, 0, deg2rad(360));
+      ctx.fillStyle = "#10a0ff";
+      ctx.fill();
+    ctx.closePath();
   }
   catch(e){
     alert(e);
