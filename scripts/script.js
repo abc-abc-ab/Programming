@@ -6,8 +6,8 @@ let x, y, dx, dy;
     p = d.getElementById("paragraph"),
     cnv = d.querySelector("canvas"),
     ctx = cnv.getContext("2d"),
-    width = cnv.style.width*(3/4),
-    height = cnv.style.height*(3/4);
+    width = cnv.width,
+    height = cnv.height;
     ctx.strokeRect(0, 0, width, height);
     ctx.beginPath();
       ctx.arc();
