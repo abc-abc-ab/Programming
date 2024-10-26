@@ -3,6 +3,13 @@ let x, y, dx = 0;
   try{
     const rad2deg = rad => (rad / Math.PI) * 180,
     deg2rad = deg => (deg / 180) * Math.PI,
+    /**
+     * @param {CanvasRenderingContext2D} elm
+     * @param {number} speed
+     */
+    shoot = (elm, speed) => {
+      console.log(`elm: ${elm}, speed: ${speed}.`)
+    }
     p = d.getElementById("paragraph"),
     cnv = d.querySelector("canvas"),
     ctx = cnv.getContext("2d"),
@@ -30,6 +37,9 @@ let x, y, dx = 0;
       }
       else if(e.key === "ArrowRight"){
         dx = 4;
+      }
+      if (e.key === "Enter"){
+        shoot(ctx, -10);
       }
     });t.addEventListener("keyup", (e)=>{
       if (e.key === "ArrowLeft" || e.key === "ArrowRight"){
