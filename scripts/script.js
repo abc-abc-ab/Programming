@@ -33,7 +33,7 @@ let x, y, dx = 0;
       else if(e.key === "ArrowRight"){
         dx = 4;
       }
-      if (e.key === "Enter"){
+      if (e.key === "Space"){
         shoot(ctx, -10);
       }
     });t.addEventListener("keyup", (e)=>{
