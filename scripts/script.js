@@ -16,14 +16,9 @@ let x, y, dx = 0;
     width = cnv.width,
     height = cnv.height;
     [x, y] = [width/2, height/2];
-    ctx.strokeRect(0, 0, width, height);
-    ctx.beginPath();
-      ctx.arc(x, y, 10, 0, deg2rad(360));
-      ctx.fillStyle = "#10a0ff";
-      ctx.fill();
-    ctx.closePath();
     t.setInterval(()=>{
       ctx.clearRect(20, 20, width-30, height-30)
+      ctx.strokeRect(0, 0, width, height);
       ctx.beginPath();
       ctx.arc(x, y, 10, 0, deg2rad(360));
       ctx.fillStyle = "#10a0ff";
