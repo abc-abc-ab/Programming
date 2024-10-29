@@ -1,13 +1,14 @@
 let x, y, dx = 0; // commit Changes!!!
 ((d, t) => {
     try {
-        // ラジアンと度の変換関数
+        // ラジアンと度の相互変換関数
         const rad2deg = rad => (rad / Math.PI) * 180;
         const deg2rad = deg => (deg / 180) * Math.PI;
 
         // 弾を撃つ関数 (現時点ではコンソールに出力)
         const shoot = (elm, speed) => {
             console.log(`elm: ${elm}, speed: ${speed}.`);
+            
         };
 
         // キャンバスとコンテキストを取得
