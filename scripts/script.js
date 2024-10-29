@@ -42,6 +42,10 @@ let x, y, dx = 0; // commit Changesぅぅ!!!
             }
 
             isClicked(mouseX, mouseY) {
+                const result = mouseX >= this.x && mouseX <= (this.x + this.width) &&
+                mouseY >= this.y && mouseY <= (this.y + this.height);
+                console.log(`${mouseX} >= ${this.x} && ${mouseX} <= (${this.x} + ${this.width}) &&
+                       ${mouseY} >= ${this.y} && ${mouseY} <= (${this.y} + ${this.height}) : ${result}`);
                 return mouseX >= this.x && mouseX <= (this.x + this.width) &&
                        mouseY >= this.y && mouseY <= (this.y + this.height);
             }
