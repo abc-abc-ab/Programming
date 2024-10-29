@@ -41,7 +41,69 @@ let x, y, dx = 0;
             }
 
             isClicked(mouseX, mouseY) {
-                return mouseX >= this.x && mouseX <= this.x + this.width &&
-                       mouseY >= this.y && mouseY <= this.y + this.height;
+                return mouseX >= this.x && mouseX <= (this.x + this.width) &&
+                       mouseY >= this.y && mouseY <= (this.y + this.height);
             }
         }
+
+        // 矢印のインスタンスを作成
+        const leftArrow = new Arrow(10, 80, 40, 25, 'left');
+        const rightArrow = new Arrow(width - 50, 80, 40, 25, 'right');
+
+        // 初期位置
+        [x, y] = [width / 2, height / 2];
+
+        // アニメーションループ
+        t.setInterval(() => {
+            ctx;
+            // キャンバスのクリアと描画
+            ctx.clearRect(0, 0, width, height);
+            leftArrow.draw();
+            rightArrow.draw();
+
+            // 円の描画 (省略)
+            ctx.beginPath();
+            ctx.arc(x, y, 10, 0, deg2rad(360));
+            ctx.fillStyle = "#10a0ff";
+            ctx.fill();
+            ctx.closePath();
+
+            // 円の移動
+            x += dx;
+        }, 10);
+
+        // クリックイベント
+        cnv.addEventListener('click', (event) => {
+            const rect = cnv.getBoundingClientRect();
+            const mouseX = event.clientX - rect.left;
+            const mouseY = event.clientY - rect.top;
+
+            if (leftArrow.isClicked(mouseX, mouseY)) {
+                dx = -4;
+            } else if (rightArrow.isClicked(mouseX, mouseY)) {
+                dx = 4;
+            }
+        });
+
+        // キーボードイベント
+        t.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") {
+                dx = -4;
+            } else if (e.key === "ArrowRight") {
+                dx = 4;
+            } else if (e.key === " ") {
+                shoot(ctx, -10);
+            }
+          else{
+            console.log(e.key);
+          }
+        });
+        t.addEventListener("keyup", (e) => {
+            if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+                dx = 0;
+            }
+        });
+    } catch (e) {
+        alert(e);
+    }
+})(document, window);
