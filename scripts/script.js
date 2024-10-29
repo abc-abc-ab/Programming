@@ -1,4 +1,4 @@
-let x, y, dx = 0;
+let x, y, dx = 0; // commit Changes!!!
 ((d, t) => {
     try {
         // ラジアンと度の変換関数
