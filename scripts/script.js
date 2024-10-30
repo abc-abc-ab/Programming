@@ -19,8 +19,8 @@ let x, y, dx = 0; // Is is commit Changes?
                 else{
                     t.requestAnimationFrame(a);
                 }
+            };
             t.requestAnimationFrame(a);
-             };
         };
       
         class Circle{
