@@ -96,7 +96,7 @@ let x, y, dx = 0; // Is it commit Changes?
             } else if (e.key === "ArrowRight") {
                 dx = 4;
             } else if (e.key === " ") {
-                shoot(ctx, player.x, player.y, 0, -1);
+                shoot(ctx, player.x, player.y, 0, -3);
             }
             else{
                 console.log(e.key);
