@@ -47,7 +47,7 @@ let x, y, dx = 0; // Is it commit Changes?
         height = cnv.height;
 
         // 初期位置
-        [x, y] = [width / 2, height / 4];
+        [x, y] = [width / 2, height*3 / 4];
         const player = new Circle(ctx, x, y, 10);
         // アニメーションループ
         let id;
