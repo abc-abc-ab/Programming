@@ -54,8 +54,10 @@ let x, y, dx = 0; // commit Changesぅぅ!!!
             ctx.clearRect(0, 0, width, height);
             ctx.fillStyle = "#10a0ff";
             // 円の移動
-            player.move(dx, 0);
-            x += dx;
+            if (10 < x && x < 200){
+                player.move(dx, 0);
+                x += dx;
+            }
             id = t.requestAnimationFrame(draw);
         }
         id = t.requestAnimationFrame(draw);
