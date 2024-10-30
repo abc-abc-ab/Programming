@@ -12,7 +12,6 @@ let x, y, dx = 0; // Is it commit Changes?
             function a(){
                 ctx.fillStyle = "#0ff";
                 bullet.move(deltaX, deltaY);
-                console.log("yeah: "+bullet.y);
                 if(bullet.y < -10){
                     t.cancelAnimationFrame(a);
                 }
