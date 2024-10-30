@@ -66,6 +66,10 @@ let x, y, dx = 0; // Is it commit Changes?
             id = t.requestAnimationFrame(draw);
         }
         id = t.requestAnimationFrame(draw);
+
+        document.addEventListener("dblclick", (e) => {
+            e.preventDefault();
+        }, { passive: false });
         // t.cancelAnimationFrame(id);
         let bool = 0;
         /*cnv.addEventListener("click", (e) => {
