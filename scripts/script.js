@@ -3,113 +3,102 @@ let x, y, dx = 0; // commit Changesぅぅ!!!
     try {
         // ラジアンと度の相互変換関数
         const rad2deg = rad => (rad / Math.PI) * 180;
-        const deg2rad = deg => (deg / 180) * Math.PI;
+        const deg2rad = deg => (deg / 180) * Math.PI,
 
         // 弾を撃つ関数 (現時点ではコンソールに出力)
-        const shoot = (elm, speed) => {
-            console.log(`elm: ${elm}, speed: ${speed}.`);
-            
+        shoot = (elm, Xx, Yy, deltaX, deltaY) => {
+        console.log(`elm: ${elm}, speed: ${deltaY}.`);
+            const bullet = new Circle(ctx, Xx, Yy, 6),
+            a = ()=>{
+              bullet.move(deltaX, deltaY);
+              if(bullet.y > 160){
+                t.cancelAnimationFrame(a);
+              }
+              else{
+                t.requestAnimationFrame(a);
+              }
+            t.requestAnimationFrame(a);
+             };
         };
-
+      
+        class Circle{
+          constructor(context, horizonal, vertical, radius){
+            this.ctx = context;
+            this.x = horizonal;
+            this.y = vertical;
+            this.r = radius;
+          };
+          move(dx, dy){
+            [this.x, this.y] = [this.x + dx, this.y + dy];
+            this.ctx.beginPath();
+            this.ctx.arc(this.x, this.y, this.r, 0/* rad */, deg2rad(360));
+            this.ctx.fill();
+            this.ctx.closePath();
+          }
+        };
+      
         // キャンバスとコンテキストを取得
-        const p = d.querySelector("p"),
-        cnv = d.querySelector("canvas"),
+        const cnv = d.querySelector("canvas"),
         ctx = cnv.getContext("2d"),
         width = cnv.width,
         height = cnv.height;
 
-        // 矢印のクラス (再利用性のためにクラス化)
-        class Arrow {
-            constructor(x, y, width, height, direction) {
-                this.x = x;
-                this.y = y;
-                this.width = width;
-                this.height = height;
-                this.direction = direction; // 'left' or 'right'
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.moveTo(this.x, this.y + this.height / 2);
-                if (this.direction === 'left') {
-                    ctx.lineTo(this.x + this.width, this.y);
-                    ctx.lineTo(this.x + this.width, this.y + this.height);
-                } else {
-                    ctx.lineTo(this.x - this.width, this.y);
-                    ctx.lineTo(this.x - this.width, this.y + this.height);
-                }
-                ctx.fill();
-                ctx.stroke();
-            }
-
-            isClicked(mouseX, mouseY) {
-                const result = mouseX >= this.x && mouseX <= (this.x + this.width) &&
-                mouseY >= this.y && mouseY <= (this.y + this.height);
-                console.log(`${mouseX} >= ${this.x} && ${mouseX} <= (${this.x} + ${this.width}) &&
-                       ${mouseY} >= ${this.y} && ${mouseY} <= (${this.y} + ${this.height}) : ${result}`);
-                return mouseX >= this.x && mouseX <= (this.x + this.width) &&
-                       mouseY >= this.y && mouseY <= (this.y + this.height);
-            }
-        }
-
-        // 矢印のインスタンスを作成
-        const leftArrow = new Arrow(10, 80, 40, 25, 'left');
-        const rightArrow = new Arrow(width - 50, 80, 40, 25, 'right');
-
         // 初期位置
         [x, y] = [width / 2, height / 2];
-
+        const player = new Circle(ctx, x, y, 10);
         // アニメーションループ
-        t.setInterval(() => {
-            ctx;
+        let id;
+        function draw(){
             // キャンバスのクリアと描画
             ctx.clearRect(0, 0, width, height);
-            leftArrow.draw();
-            rightArrow.draw();
-
-            // 円の描画 (省略)
-            ctx.beginPath();
-            ctx.arc(x, y, 10, 0, deg2rad(360));
             ctx.fillStyle = "#10a0ff";
-            ctx.fill();
-            ctx.closePath();
-
             // 円の移動
+            player.move(dx, 0);
             x += dx;
-            p.textContent = `x: ${x}, y: ${y}; dx: ${dx};`;
-        }, 10);
-
-        // クリックイベント
-        cnv.addEventListener('click', (event) => {
-            const rect = cnv.getBoundingClientRect();
-            const mouseX = event.clientX - rect.left;
-            const mouseY = event.clientY - rect.top;
-
-            if (leftArrow.isClicked(mouseX, mouseY)) {
-                dx = -4;
-            } else if (rightArrow.isClicked(mouseX, mouseY)) {
-                dx = 4;
-            }
+            id = t.requestAnimationFrame(draw);
+        }
+        id = t.requestAnimationFrame(draw);
+        // t.cancelAnimationFrame(id);
+        let bool = 0;
+        /*cnv.addEventListener("click", (e) => {
+          bool = true;
+        });*/cnv.addEventListener("touchstart", (e) => {
+          bool = true;
+        });cnv.addEventListener("touchend", () => {
+          bool = false;
+        });cnv.addEventListener("touchmove", (e)=>{
+            const ev = e.touches[0]
+            if (bool)  
+              player.x = ev.clientX * 0.75;
         });
-
-        // キーボードイベント
-        t.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowLeft") {
+      
+      
+        cnv.addEventListener("mousedown", (e) => {
+          bool = true;
+        });cnv.addEventListener("mouseup", () => {
+          bool = false;
+        });cnv.addEventListener("mousemove", (e)=>{
+            if (bool)  
+              player.x = e.clientX * 0.75;
+        });
+         // キーボードイベント
+         t.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft" && (x > 10)) {
                 dx = -4;
-            } else if (e.key === "ArrowRight") {
+            } else if (e.key === "ArrowRight" && (x < 200)) {
                 dx = 4;
             } else if (e.key === " ") {
-                shoot(ctx, -10);
+                shoot(ctx, x, y, 0, -10);
             }
-          else{
-            console.log(e.key);
-          }
-        });
-        t.addEventListener("keyup", (e) => {
+            else{
+                console.log(e.key);
+            }
+         });
+         t.addEventListener("keyup", (e) => {
             if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
                 dx = 0;
             }
-        });
+         });
     } catch (e) {
         alert(e);
     }
