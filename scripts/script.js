@@ -1,4 +1,4 @@
-let x, y, dx = 0; // Is is commit Changes?
+let x, y, dx = 0; // Is it commit Changes?
 ((d, t) => {
     try {
         // ラジアンと度の相互変換関数
