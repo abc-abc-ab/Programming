@@ -54,7 +54,7 @@ let x, y, dx = 0; // commit Changesぅぅ...? a.. ぅ!!!!
             ctx.clearRect(0, 0, width, height);
             ctx.fillStyle = "#10a0ff";
             // 円の移動
-            if (10 < player.x && player.x < 200){
+            if (0 < player.x && player.x < width){
                 player.move(dx, 0);
                 x += dx;
             }
