@@ -14,7 +14,7 @@ let x, y, dx = 0; // Is it commit Changes?
                 bullet.move(deltaX, deltaY);
                 console.log("yeah: "+bullet.y);
                 if(bullet.y < -10){
-                    // t.cancelAnimationFrame(a);
+                    t.cancelAnimationFrame(a);
                 }
                 else{
                     t.requestAnimationFrame(a);
