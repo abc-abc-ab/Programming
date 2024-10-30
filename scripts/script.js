@@ -9,14 +9,15 @@ let x, y, dx = 0; // commit Changesぅぅ!!!
         shoot = (elm, Xx, Yy, deltaX, deltaY) => {
         console.log(`elm: ${elm}, speed: ${deltaY}.`);
             const bullet = new Circle(ctx, Xx, Yy, 6),
-            a = ()=>{
-              bullet.move(deltaX, deltaY);
-              if(bullet.y > 160){
-                t.cancelAnimationFrame(a);
-              }
-              else{
-                t.requestAnimationFrame(a);
-              }
+            a = () =>{
+                ctx.fillStyle = "#0ff";
+                bullet.move(deltaX, deltaY);
+                if(bullet.y < -10){
+                    // t.cancelAnimationFrame(a);
+                }
+                else{
+                    t.requestAnimationFrame(a);
+                }
             t.requestAnimationFrame(a);
              };
         };
