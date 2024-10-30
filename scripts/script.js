@@ -10,7 +10,7 @@ let x, y, dx = 0; // Is it commit Changes?
             // console.log(`elm: ${elm}, x: ${Xx}, y: ${Yy}, speed: ${Math.abs(deltaY)}.`);
             const bullet = new Circle(ctx, Xx, Yy, 6);
             function a(){
-                ctx.fillStyle = "#f0f";
+                ctx.fillStyle = "#ff0";
                 bullet.move(deltaX, deltaY);
                 if(bullet.y < -10){
                     t.cancelAnimationFrame(a);
