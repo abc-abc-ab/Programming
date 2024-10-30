@@ -8,8 +8,8 @@ let x, y, dx = 0; // It is commit Changes!
         // 弾を撃つ関数 (現時点ではコンソールに出力)
         shoot = (elm, Xx, Yy, deltaX, deltaY) => {
         console.log(`elm: ${elm}, x: ${Xx}, y: ${Yy}, speed: ${Math.abs(deltaY)}.`);
-            const bullet = new Circle(ctx, Xx, Yy, 6),
-            a = () =>{
+            const bullet = new Circle(ctx, Xx, Yy, 6);
+            function a(){
                 ctx.fillStyle = "#0ff";
                 bullet.move(deltaX, deltaY);
                 console.log("yeah: "+bullet.y);
