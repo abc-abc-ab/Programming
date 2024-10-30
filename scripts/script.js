@@ -102,9 +102,6 @@ let x, y, dx = 0; // Is it commit Changes?
             } else if (e.key === " ") {
                 shoot(ctx, player.x, player.y, 0, -3);
             }
-            else{
-                console.log(e.key);
-            }
          });
          t.addEventListener("keyup", (e) => {
             if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
