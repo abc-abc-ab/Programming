@@ -12,10 +12,11 @@ let x, y, dx = 0; // commit Changesぅぅ!!!
         };
 
         // キャンバスとコンテキストを取得
-        const cnv = d.querySelector("canvas");
-        const ctx = cnv.getContext("2d");
-        const width = cnv.width;
-        const height = cnv.height;
+        const p = d.querySelector("p"),
+        cnv = d.querySelector("canvas"),
+        ctx = cnv.getContext("2d"),
+        width = cnv.width,
+        height = cnv.height;
 
         // 矢印のクラス (再利用性のためにクラス化)
         class Arrow {
@@ -75,6 +76,7 @@ let x, y, dx = 0; // commit Changesぅぅ!!!
 
             // 円の移動
             x += dx;
+            p.textContent = `x: ${x}, y: ${y}; dx: ${dx};`;
         }, 10);
 
         // クリックイベント
