@@ -59,7 +59,7 @@ let x, y, dx = 0; // commit Changesぅぅ...?
                 x += dx;
             }
             else{
-                player.x = 0;
+                player.x = width / 2;
             }
             id = t.requestAnimationFrame(draw);
         }
