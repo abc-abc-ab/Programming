@@ -89,9 +89,9 @@ let x, y, dx = 0; // commit Changesぅぅ...? a.. ぅ!!!!
         });
          // キーボードイベント
          t.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowLeft" && (x > 10)) {
+            if (e.key === "ArrowLeft") {
                 dx = -4;
-            } else if (e.key === "ArrowRight" && (x < 200)) {
+            } else if (e.key === "ArrowRight") {
                 dx = 4;
             } else if (e.key === " ") {
                 shoot(ctx, player.x, player.y, 0, -1);
