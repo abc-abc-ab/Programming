@@ -1,4 +1,4 @@
-let x, y, dx = 0; // commit Changes..?
+let x, y, dx = 0; // commit Changes.?
 ((d, t) => {
     try {
         // ラジアンと度の相互変換関数
@@ -12,8 +12,8 @@ let x, y, dx = 0; // commit Changes..?
             a = () =>{
                 ctx.fillStyle = "#0ff";
                 bullet.move(deltaX, deltaY);
+                console.log("yeah: "+bullet.y);
                 if(bullet.y < -10){
-                    console.log("yeah: "+bullet.y);
                     // t.cancelAnimationFrame(a);
                 }
                 else{
