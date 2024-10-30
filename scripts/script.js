@@ -7,7 +7,7 @@ let x, y, dx = 0; // commit Changesぅぅ!!!
 
         // 弾を撃つ関数 (現時点ではコンソールに出力)
         shoot = (elm, Xx, Yy, deltaX, deltaY) => {
-        console.log(`elm: ${elm}, speed: ${deltaY}.`);
+        console.log(`elm: ${elm}, x: ${Xx}, y: ${Yy}, speed: ${Math.abs(deltaY)}.`);
             const bullet = new Circle(ctx, Xx, Yy, 6),
             a = () =>{
                 ctx.fillStyle = "#0ff";
