@@ -1,4 +1,4 @@
-let x, y, dx = 0; // commit Changesぅぅ...?
+let x, y, dx = 0; // commit Changesぅぅ...? a.. ぅ!!!!
 ((d, t) => {
     try {
         // ラジアンと度の相互変換関数
