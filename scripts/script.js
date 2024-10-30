@@ -13,6 +13,7 @@ let x, y, dx = 0; // commit Changes.
                 ctx.fillStyle = "#0ff";
                 bullet.move(deltaX, deltaY);
                 if(bullet.y < -10){
+                    console.log("yeah: "+bullet.y);
                     // t.cancelAnimationFrame(a);
                 }
                 else{
