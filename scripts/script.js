@@ -2,8 +2,8 @@ let x, y, dx = 0; // Is it commit Changes?
 ((d, t) => {
     try {
         // ラジアンと度の相互変換関数
-        const rad2deg = rad => (rad / Math.PI) * 180;
-        const deg2rad = deg => (deg / 180) * Math.PI,
+        const rad2deg = rad => (rad / Math.PI) * 180,
+        deg2rad = deg => (deg / 180) * Math.PI,
 
         // 弾を撃つ関数 (現時点ではコンソールに出力)
         shoot = (elm, Xx, Yy, deltaX, deltaY) => {
@@ -107,6 +107,10 @@ let x, y, dx = 0; // Is it commit Changes?
                 dx = 0;
             }
          });
+
+         d.getElementById("bullet").addEventListener("click", () => {
+            t.dispatchEvent(new KeyboardEvent("keydown", {key: " "}))
+         })
     } catch (e) {
         alert(e);
     }
