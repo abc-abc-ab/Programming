@@ -58,6 +58,9 @@ let x, y, dx = 0; // commit Changesぅぅ!!!
                 player.move(dx, 0);
                 x += dx;
             }
+            else{
+                player.move(0,0);
+            }
             id = t.requestAnimationFrame(draw);
         }
         id = t.requestAnimationFrame(draw);
