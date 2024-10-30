@@ -89,7 +89,7 @@ let x, y, dx = 0; // commit Changesぅぅ!!!
             } else if (e.key === "ArrowRight" && (x < 200)) {
                 dx = 4;
             } else if (e.key === " ") {
-                shoot(ctx, x, y, 0, -10);
+                shoot(ctx, x, y, 0, -1);
             }
             else{
                 console.log(e.key);
