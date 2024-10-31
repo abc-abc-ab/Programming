@@ -69,7 +69,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ!
                 }
             })()
             // 円の移動
-            ctx.fillStyle = "#";
+            ctx.fillStyle = "#faaf46";
             ai.move(ax, ay);
             if (0 < player.x && player.x < width){
                 player.move(dx, 0);
@@ -113,8 +113,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ!
                 shoot(ctx, player.x, player.y, 0, -3);
             }
              else if(e.key.match(/(<?->?)|(>\.<)/)){
-                // t.alert(e.key);
-                console.log(e.key);
+                ax = player.x - ai.x
              }
          });
          t.addEventListener("keyup", (e) => {
