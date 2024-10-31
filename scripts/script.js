@@ -86,6 +86,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
                 } else {
                     this.x -= this.speed;
                 }
+                this.draw();
             }
         
             draw() {
