@@ -1,4 +1,5 @@
-let x, y, dx = 0; // It is commit Changesぅぅ!
+let x, y, dx, ax, ay; // It is commit Changesぅぅ!
+[dx, ax, ay] = [0,0,0]
 ((d, t) => {
     try {
         // ラジアンと度の相互変換関数
@@ -56,10 +57,21 @@ let x, y, dx = 0; // It is commit Changesぅぅ!
             // キャンバスのクリアと描画
             ctx.clearRect(0, 0, width, height);
             ctx.fillStyle = "#10a0ff";
+            (function moveAI(){
+                if (player.x < x){
+                    t.dispachEvent(new KeyboardEvent("keydown", {key: "->"}));
+                }
+                else if(x < player.x){
+                    t.dispachEvent(new KeyboardEvent("keydown", {key: "<-"}));
+                }
+                else{
+                    t.dispachEvent(new KeyboardEvent("keydown", {key ">.<"}));
+                }
+            })()
             // 円の移動
+            ai.move(ax, ay);
             if (0 < player.x && player.x < width){
                 player.move(dx, 0);
-                x += dx;
             }
             else{
                 player.x = width / 2;
@@ -67,10 +79,6 @@ let x, y, dx = 0; // It is commit Changesぅぅ!
             id = t.requestAnimationFrame(draw);
         }
         id = t.requestAnimationFrame(draw);
-
-        document.addEventListener("dblclick", (e) => {
-            e.preventDefault();
-        }, { passive: false });
         // t.cancelAnimationFrame(id);
         let bool = 0;
         /*cnv.addEventListener("click", (e) => {
@@ -103,6 +111,9 @@ let x, y, dx = 0; // It is commit Changesぅぅ!
             } else if (e.key === " ") {
                 shoot(ctx, player.x, player.y, 0, -3);
             }
+             else if(e.key.match(/(<?->?)|(>¥.<)/)){
+                 t.alert(e.key);
+             }
          });
          t.addEventListener("keyup", (e) => {
             if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
