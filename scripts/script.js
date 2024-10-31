@@ -88,7 +88,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             id = t.requestAnimationFrame(draw);
         }
         id = t.requestAnimationFrame(draw);
-        // t.cancelAnimationFrame(id);
+        // t.cancelAnimationFrame(id); # what the f**k!?
         let bool = 0;
         /*cnv.addEventListener("click", (e) => {
           bool = true;
