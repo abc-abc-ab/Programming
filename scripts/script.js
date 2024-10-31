@@ -1,9 +1,9 @@
 let x, y, dx, ax, ay; // commit Changesぅぅ???
+        /**@type {Array<Circle>} */
+        let bullets = [];
 [dx, ax, ay] = [0,0,0];
 ((d, t) => {
     try {
-        /**@type {Array<Circle>} */
-        let bullets = [];
         // ラジアンと度の相互変換関数
         /** @param {number} rad */
         const rad2deg = rad => (rad / Math.PI) * 180;
