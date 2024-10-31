@@ -76,14 +76,14 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             // キャンバスのクリアと描画
             ctx.clearRect(0, 0, width, height);
             (function moveAI(){
-                if (player.x < x){
+                if(x-30 < player.x < x+30){
+                    t.dispatchEvent(new KeyboardEvent("keydown", {key: ">.<"}));
+                }
+                else if (player.x < x){
                     t.dispatchEvent(new KeyboardEvent("keydown", {key: "->"}));
                 }
                 else if(x < player.x){
                     t.dispatchEvent(new KeyboardEvent("keydown", {key: "<-"}));
-                }
-                else{
-                    t.dispatchEvent(new KeyboardEvent("keydown", {key: ">.<"}));
                 }
             })()
             // 円の移動
