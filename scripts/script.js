@@ -48,7 +48,8 @@ let x, y, dx = 0; // It is commit Changesぅぅ!
 
         // 初期位置
         [x, y] = [width / 2, height*3 / 4];
-        const player = new Circle(ctx, x, y, 10);
+        const player = new Circle(ctx, x, y, 10),
+        ai = new Cicle(ctx, x, y/3, 10);
         // アニメーションループ
         let id;
         function draw(){
