@@ -76,7 +76,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             // キャンバスのクリアと描画
             ctx.clearRect(0, 0, width, height);
             (function moveAI(){
-                if(x-30 < player.x < x+30){
+                if(x-30 < player.x && player.x < x+30){
                     t.dispatchEvent(new KeyboardEvent("keydown", {key: ">.<"}));
                 }
                 else if (player.x < x){
