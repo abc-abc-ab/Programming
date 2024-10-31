@@ -2,21 +2,32 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
 [dx, ax, ay] = [0,0,0];
 ((d, t) => {
     try {
+        /**@type {Array<Circle>} */
+        let bullets = [];
         // ラジアンと度の相互変換関数
         /** @param {number} rad */
         const rad2deg = rad => (rad / Math.PI) * 180;
         /** @param {number} deg */
-        const deg2rad = deg => (deg / 180) * Math.PI,
+        const deg2rad = deg => (deg / 180) * Math.PI;
 
-        // 弾を撃つ関数 (現時点ではコンソールに出力)
-        shoot = (elm, Xx, Yy, deltaX, deltaY) => {
+        // 弾を撃つ関数
+        /**
+         * @param {HTMLCanvasElement} elm 
+         * @param {number} Xx 
+         * @param {number} Yy 
+         * @param {number} deltaX 
+         * @param {number} deltaY 
+         */
+        const shoot = (elm, Xx, Yy, deltaX, deltaY) => {
             // console.log(`elm: ${elm}, x: ${Xx}, y: ${Yy}, speed: ${Math.abs(deltaY)}.`);
-            const bullet = new Circle(ctx, Xx, Yy, 6);
+            const bullet = new Circle(elm.getContext("2d"), Xx, Yy, 6);
+            bullets.push(bullet);
             function a(){
-                ctx.fillStyle = "#ff0";
+                elm.getContext("2d").fillStyle = "#ff0";
                 bullet.move(deltaX, deltaY);
                 if(bullet.y < -10){
                     t.cancelAnimationFrame(a);
+                    bullets.filter(() => !bullets.includes(bullet));
                 }
                 else{
                     t.requestAnimationFrame(a);
