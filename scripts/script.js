@@ -69,6 +69,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ!
                 }
             })()
             // 円の移動
+            ctx.fillStyle = "#";
             ai.move(ax, ay);
             if (0 < player.x && player.x < width){
                 player.move(dx, 0);
