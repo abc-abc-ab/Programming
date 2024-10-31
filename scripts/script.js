@@ -3,8 +3,10 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
 ((d, t) => {
     try {
         // ラジアンと度の相互変換関数
-        const rad2deg = rad => (rad / Math.PI) * 180,
-        deg2rad = deg => (deg / 180) * Math.PI,
+        /** @param {number} rad */
+        const rad2deg = rad => (rad / Math.PI) * 180;
+        /** @param {number} deg */
+        const deg2rad = deg => (deg / 180) * Math.PI,
 
         // 弾を撃つ関数 (現時点ではコンソールに出力)
         shoot = (elm, Xx, Yy, deltaX, deltaY) => {
@@ -22,8 +24,14 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             };
             t.requestAnimationFrame(a);
         };
-      
+
         class Circle{
+            /**
+             * @param {CanvasRenderingContext2D} context 
+             * @param {number} horizonal 
+             * @param {number} vertical 
+             * @param {number} radius 
+             */
           constructor(context, horizonal, vertical, radius){
             this.ctx = context;
             this.x = horizonal;
@@ -113,7 +121,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
                 shoot(ctx, player.x, player.y, 0, -3);
             }
              else if(e.key.match(/(<?->?)|(>\.<)/)){
-                ax = player.x - ai.x
+                ax = ai.x - player.x
              }
          });
          t.addEventListener("keyup", (e) => {
