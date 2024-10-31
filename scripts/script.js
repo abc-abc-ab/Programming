@@ -56,7 +56,6 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
         function draw(){
             // キャンバスのクリアと描画
             ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = "#10a0ff";
             (function moveAI(){
                 if (player.x < x){
                     t.dispatchEvent(new KeyboardEvent("keydown", {key: "->"}));
@@ -72,6 +71,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             ctx.fillStyle = "#faaf46";
             ai.move(ax, ay);
             if (0 < player.x && player.x < width){
+                ctx.fillStyle = "#10a0ff";
                 player.move(dx, 0);
             }
             else{
