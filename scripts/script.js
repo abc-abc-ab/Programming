@@ -65,7 +65,7 @@ let x, y, dx, ax, ay; // It is commit Changesぅぅ!
                     t.dispachEvent(new KeyboardEvent("keydown", {key: "<-"}));
                 }
                 else{
-                    t.dispachEvent(new KeyboardEvent("keydown", {key ">.<"}));
+                    t.dispachEvent(new KeyboardEvent("keydown", {key: ">.<"}));
                 }
             })()
             // 円の移動
