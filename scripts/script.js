@@ -64,7 +64,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
         };
         class Enemy {
             /** `Enemy`オブジェクトを生成
-             * @param {number} x 
+             * @param {number} Xx 
              * @param {number} radius 
              * @param {number} speed 
              */
@@ -108,13 +108,13 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
         // 初期位置
         [x, y] = [width / 2, height*3 / 4];
         const player = new Circle(ctx, x, y, 10),
-        ai = new Circle(ctx, x, y/3, 10);
+        ai = new Enemy(x, 10, 5);
         // アニメーションループ
         let id;
         function draw(){
             // キャンバスのクリアと描画
             ctx.clearRect(0, 0, width, height);
-            (function moveAI(){
+            /*(function moveAI(){
                 if(x-30 < player.x && player.x < x+30){
                     t.dispatchEvent(new KeyboardEvent("keydown", {key: ">.<"}));
                 }
@@ -124,7 +124,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
                 else if(x < player.x){
                     t.dispatchEvent(new KeyboardEvent("keydown", {key: "<-"}));
                 }
-            })()
+            })()*/
             // 円の移動
             ctx.fillStyle = "#faaf46";
             ai.move(ax, ay);
