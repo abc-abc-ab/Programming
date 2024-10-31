@@ -36,7 +36,31 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             t.requestAnimationFrame(a);
         };
 
-        class Circle{
+        class GameObject {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.width = undefined;
+                this.height = undefined;
+                this.r = undefined;
+            }
+            /**@param {GameObject} other  */
+            isColliding(other) {
+                return this.x < other.x + (other.width || other.r) &&
+                    this.x + (this.width || this.r) > other.x &&
+                    this.y < other.y + (other.height || other.r) &&
+                    this.y + (this.height || this.r) > other.y;
+            }
+        }
+        
+        // 使用例
+        const obj1 = new GameObject(10, 10, 50, 50);
+        const obj2 = new GameObject(30, 30, 30, 30);
+        
+        if (obj1.isColliding(obj2)) {
+            console.log("衝突しています");
+        }
+        class Circle extends GameObject{
             /** `Circle`オブジェクトを生成
              * @param {CanvasRenderingContext2D} context
              * @param {number} horizonal
@@ -45,9 +69,8 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
              */
           constructor(context, horizonal, vertical, radius){
             this.ctx = context;
-            this.x = horizonal;
-            this.y = vertical;
             this.r = radius;
+            super(horizonal, vertical);
           };
           /**
            * @param {number} dx
