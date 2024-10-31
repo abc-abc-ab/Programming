@@ -122,7 +122,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             }
              else if(e.key.match(/(<?->?)|(>\.<)/)){
                 if (e.key !== ">.<"){
-                    ai.x = (-player.x) + 150;
+                    ai.x = (-player.x) + width;
                     ax = 0;
                 }
                 else{
