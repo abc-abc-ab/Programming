@@ -11,7 +11,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
         const deg2rad = deg => (deg / 180) * Math.PI;
 
         // 弾を撃つ関数
-        /**
+        /** 
          * @param {HTMLCanvasElement} elm 
          * @param {number} Xx 
          * @param {number} Yy 
@@ -37,11 +37,11 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
         };
 
         class Circle{
-            /**
-             * @param {CanvasRenderingContext2D} context 
-             * @param {number} horizonal 
-             * @param {number} vertical 
-             * @param {number} radius 
+            /** `Circle`オブジェクトを生成
+             * @param {CanvasRenderingContext2D} context
+             * @param {number} horizonal
+             * @param {number} vertical
+             * @param {number} radius
              */
           constructor(context, horizonal, vertical, radius){
             this.ctx = context;
@@ -49,6 +49,10 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             this.y = vertical;
             this.r = radius;
           };
+          /**
+           * @param {number} dx
+           * @param {number} dy
+           */
           move(dx, dy){
             [this.x, this.y] = [this.x + dx, this.y + dy];
             p.textContent = `x: ${this.x},y: ${this.y},dx: ${dx}`;
@@ -58,6 +62,41 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             this.ctx.closePath();
           }
         };
+        class Enemy {
+            /** `Enemy`オブジェクトを生成
+             * @param {number} x 
+             * @param {number} radius 
+             * @param {number} speed 
+             */
+            constructor(Xx, radius, speed) {
+                this.circle = new Circle(ctx, Xx, y/3, radius);
+                this.speed = speed; // 移動速度
+                this.hp = 100; // 体力
+                this.isDead = false; // 生存フラグ
+            }
+        
+            update() {
+                // 敵のAIを実装する部分 (例: プレイヤーを追いかける)
+                // プレイヤーの位置をplayer.xとすると
+                if (player.x > this.circle.x) {
+                    this.circle.move(this.speed, 0);
+                } else {
+                    this.circle.move(-this.speed, 0);
+                }
+            }
+        
+            draw() {
+                this.circle.move(0, 0);
+            }
+        
+            takeDamage(damage) {
+                this.hp -= damage;
+                if (this.hp <= 0) {
+                    this.hp = 0;
+                    this.isDead = true;
+                }
+            }
+        }
       
         // キャンバスとコンテキストを取得
         const p = d.querySelector("p"),
