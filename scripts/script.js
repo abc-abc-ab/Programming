@@ -112,7 +112,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ!
                 shoot(ctx, player.x, player.y, 0, -3);
             }
              else if(e.key.match(/(<?->?)|(>¥.<)/)){
-                 t.alert(e.key);
+                // t.alert(e.key);
              }
          });
          t.addEventListener("keyup", (e) => {
