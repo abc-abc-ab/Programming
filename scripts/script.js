@@ -129,7 +129,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             } else if (e.key === "ArrowRight") {
                 dx = 4;
             } else if (e.key === " ") {
-                shoot(ctx, player.x, player.y, 0, -3);
+                shoot(cnv, player.x, player.y, 0, -3);
             }
              else if(e.key.match(/(<?->?)|(>\.<)/)){
                 if (e.key !== ">.<"){
