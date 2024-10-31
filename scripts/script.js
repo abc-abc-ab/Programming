@@ -27,7 +27,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
                 bullet.move(deltaX, deltaY);
                 if(bullet.y < -10){
                     t.cancelAnimationFrame(a);
-                    bullets.filter(() => !bullets.includes(bullet));
+                    bullets = bullets.filter(() => !bullets.includes(bullet));
                 }
                 else{
                     t.requestAnimationFrame(a);
