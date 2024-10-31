@@ -121,7 +121,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
                 shoot(ctx, player.x, player.y, 0, -3);
             }
              else if(e.key.match(/(<?->?)|(>\.<)/)){
-                ax = ai.x - player.x
+                ai.x = -player.x;
              }
          });
          t.addEventListener("keyup", (e) => {
