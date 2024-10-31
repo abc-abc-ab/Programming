@@ -59,13 +59,13 @@ let x, y, dx, ax, ay; // commit Changesぅぅ!
             ctx.fillStyle = "#10a0ff";
             (function moveAI(){
                 if (player.x < x){
-                    t.dispachEvent(new KeyboardEvent("keydown", {key: "->"}));
+                    t.dispatchEvent(new KeyboardEvent("keydown", {key: "->"}));
                 }
                 else if(x < player.x){
-                    t.dispachEvent(new KeyboardEvent("keydown", {key: "<-"}));
+                    t.dispatchEvent(new KeyboardEvent("keydown", {key: "<-"}));
                 }
                 else{
-                    t.dispachEvent(new KeyboardEvent("keydown", {key: ">.<"}));
+                    t.dispatchEvent(new KeyboardEvent("keydown", {key: ">.<"}));
                 }
             })()
             // 円の移動
