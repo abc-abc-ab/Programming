@@ -111,8 +111,9 @@ let x, y, dx, ax, ay; // commit Changesぅぅ!
             } else if (e.key === " ") {
                 shoot(ctx, player.x, player.y, 0, -3);
             }
-             else if(e.key.match(/(<?->?)|(>¥.<)/)){
+             else if(e.key.match(/(<?->?)|(>\.<)/)){
                 // t.alert(e.key);
+                console.log(e.key);
              }
          });
          t.addEventListener("keyup", (e) => {
