@@ -1,5 +1,5 @@
 let x, y, dx, ax, ay; // It is commit Changesぅぅ!
-[dx, ax, ay] = [0,0,0]
+[dx, ax, ay] = [0,0,0];
 ((d, t) => {
     try {
         // ラジアンと度の相互変換関数
