@@ -78,10 +78,13 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             update() {
                 // 敵のAIを実装する部分 (例: プレイヤーを追いかける)
                 // プレイヤーの位置をplayer.xとすると
-                if (player.x > this.circle.x) {
-                    this.circle.move(this.speed, 0);
+                const deltaX = player.x - this.x;
+
+                // 敵がプレイヤーより左にいる場合、右へ移動
+                if (deltaX > 0) {
+                    this.x += this.speed;
                 } else {
-                    this.circle.move(-this.speed, 0);
+                    this.x -= this.speed;
                 }
             }
         
@@ -127,7 +130,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             })()*/
             // 円の移動
             ctx.fillStyle = "#faaf46";
-            ai.move(ax, ay);
+            ai.update();
             if (0 < player.x && player.x < width){
                 ctx.fillStyle = "#10a0ff";
                 player.move(dx, 0);
