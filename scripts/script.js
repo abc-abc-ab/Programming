@@ -65,7 +65,11 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             this.ctx.closePath();
           }
 
-          static isColliding(circleA, circleB){
+          /**
+           * @param {Circle?} circleA 
+           * @param {Circle?} circleB 
+           */
+          static isColliding(circleA = new Circle(), circleB = new Circle()){
             if (circleA instanceof Circle && circleB instanceof Circle){
                 if (circleA === circleB){
                     throw "比較対象が同じです.";
@@ -80,6 +84,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
                 です.`;
             }
           }
+          
         };
         /* new Circle().ctx
         new Circle().move()
