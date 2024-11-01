@@ -71,7 +71,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
                     throw "比較対象が同じです.";
                 }
                 else{
-
+                    // `衝突したかの処理`を書く
                 }
             }
             else{
@@ -81,6 +81,12 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
             }
           }
         };
+        /* new Circle().ctx
+        new Circle().move()
+        new Circle().r
+        new Circle().x
+        new Circle().y
+        Circle.isColliding() */
 
         class Enemy {
             /** `Enemy`オブジェクトを生成
