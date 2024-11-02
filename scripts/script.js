@@ -119,15 +119,14 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
 
                 // 敵がプレイヤーより左にいる場合、右へ移動
                 if (deltaX > 0) {
-                    this.x += this.speed;
+                    this.draw(this.speed);
                 } else {
-                    this.x -= this.speed;
+                    this.draw(-this.speed);
                 }
-                this.draw();
             }
         
-            draw() {
-                this.circle.move(0, 0);
+            draw(dX, dY) {
+                this.circle.move(dX, dY);
             }
         
             takeDamage(damage) {
