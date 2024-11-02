@@ -76,11 +76,17 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
                 }
                 else{
                     // `衝突したかの処理`を書く
+                    const dx = circleA.x - circleB.x;
+                    const dy = circleA.y - circleB.y;
+                    const distance = Math.hypot(dx, dy);
+
+                    return distance <= circleA.r + circleB.r;
                 }
             }
             else{
+                const abc = asd => Object.prototype.toString(asd);
                 throw `型はどちらも\`Circle\`でないといけませんが,
-                (${circleA}, ${circleB})
+                (${abc.call(circleA)}, ${abc.call(circleB)})
                 です.`;
             }
           }
