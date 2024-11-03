@@ -1,29 +1,30 @@
-let x, y, dx, ax, ay; // What? commit Changesぅぅ!?
-/**
- * @typedef {{
- *    ctx: CanvasRenderingContext2D,
- *    x: number,
- *    y: number,
- *    r: number,
- *    move: (dx: number, dy: number) => void
- * }} Player
- * @typedef {{
- *    circle: Player,
- *    speed: number,
- *    hp: number = 100,
- *    isDead: bool = false
- *    update: () => void,
- *    draw: (dx: number, dy: number) => void,
- *    takeDamage: (damage: number) => number
- * }} AI 
- * @type {AI}
- */
-let ai;
-/**@type {Array<Circle>} */
-let bullets = [];
-[dx, ax, ay] = [0,0,0];
+        /**
+         * @typedef {{
+        *    ctx: CanvasRenderingContext2D,
+        *    x: number,
+        *    y: number,
+        *    r: number,
+        *    move: (dx: number, dy: number) => void
+        * }} Player
+        * @typedef {{
+        *    circle: Player,
+        *    speed: number,
+        *    hp: number = 100,
+        *    isDead: bool = false
+        *    update: () => void,
+        *    draw: (dx: number, dy: number) => void,
+        *    takeDamage: (damage: number) => number
+        * }} AI 
+        * @type {AI}
+        */
+       let ai;
 ((d, t) => {
     try {
+        let x, y, dx, ax, ay; // What? commit Changesぅぅ!?
+        /**@type {Array<Circle>} */
+        let bullets = [];
+        [dx, ax, ay] = [0,0,0];
+        
         // ラジアンと度の相互変換関数
         /** @param {number} rad */
         const rad2deg = rad => (rad / Math.PI) * 180;
@@ -164,15 +165,16 @@ let bullets = [];
         const cnv = d.querySelector("canvas"),
         ctx = cnv.getContext("2d"),
         width = cnv.width,
-        height = cnv.height;
+        height = cnv.height,
+        CIRCLE_RADIUS = 10;
 
         // 初期位置
         [x, y] = [width / 2, height*3 / 4];
         /* canvas, x, y, radius */
-        const player = new Circle(ctx, x, y, 10);
+        const player = new Circle(ctx, x, y, CIRCLE_RADIUS);
         /* x, radius, speed */
         /**@type {Enemy} */
-        ai = new Enemy(x, 10, 2);
+        ai = new Enemy(x, CIRCLE_RADIUS, 2);
         // アニメーションループ
         let id;
         function draw(){
