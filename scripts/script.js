@@ -1,4 +1,5 @@
 let x, y, dx, ax, ay; // commit Changesぅぅ???
+let ai;
         /**@type {Array<Circle>} */
         let bullets = [];
 [dx, ax, ay] = [0,0,0];
@@ -151,7 +152,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
         // 初期位置
         [x, y] = [width / 2, height*3 / 4];
         /* canvas, x, y, radius */
-        const player = new Circle(ctx, x, y, 10),
+        const player = new Circle(ctx, x, y, 10);
         /* x, radius, speed */
         ai = new Enemy(x, 10, 2);
         // アニメーションループ
