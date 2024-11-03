@@ -1,7 +1,7 @@
 let x, y, dx, ax, ay; // Yes. commit Changesぅぅ!
 let ai;
-        /**@type {Array<Circle>} */
-        let bullets = [];
+/**@type {Array<Circle>} */
+let bullets = [];
 [dx, ax, ay] = [0,0,0];
 ((d, t) => {
     try {
