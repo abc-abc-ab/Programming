@@ -112,12 +112,6 @@ let bullets = [];
           }
           
         };
-        /* new Circle().ctx
-        new Circle().move()
-        new Circle().r
-        new Circle().x
-        new Circle().y
-        Circle.isColliding() */
 
         class Enemy {
             /** `Enemy`オブジェクトを生成
@@ -184,17 +178,7 @@ let bullets = [];
         function draw(){
             // キャンバスのクリアと描画
             ctx.clearRect(0, 0, width, height);
-            /*(function moveAI(){
-                if(x-30 < player.x && player.x < x+30){
-                    t.dispatchEvent(new KeyboardEvent("keydown", {key: ">.<"}));
-                }
-                else if (player.x < x){
-                    t.dispatchEvent(new KeyboardEvent("keydown", {key: "->"}));
-                }
-                else if(x < player.x){
-                    t.dispatchEvent(new KeyboardEvent("keydown", {key: "<-"}));
-                }
-            })()*/
+
             // 円の移動
             ctx.fillStyle = "#faaf46";
             if(ai.isDead){
@@ -213,11 +197,9 @@ let bullets = [];
             id = t.requestAnimationFrame(draw);
         }
         id = t.requestAnimationFrame(draw);
-        // t.cancelAnimationFrame(id); # what the f**k!?
+
         let bool = 0;
-        /*cnv.addEventListener("click", (e) => {
-          bool = true;
-        });*/cnv.addEventListener("touchstart", (e) => {
+        cnv.addEventListener("touchstart", (e) => {
           bool = true;
         });cnv.addEventListener("touchend", () => {
           bool = false;
@@ -245,15 +227,6 @@ let bullets = [];
             } else if (e.key === " ") {
                 shoot(cnv, player.x, player.y, 0, -3);
             }
-             else if(e.key.match(/(<?->?)|(>\.<)/)){
-                if (e.key !== ">.<"){
-                    ai.x = (-player.x) + width;
-                    ax = 0;
-                }
-                else{
-                    ax = (100 * Math.random() >= 51)?4:-4;
-                }
-             }
          });
          t.addEventListener("keyup", (e) => {
             if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
