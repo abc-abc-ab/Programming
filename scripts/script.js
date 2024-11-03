@@ -116,7 +116,7 @@ let bullets = [];
             update() {
                 // 敵のAIを実装する部分 (例: プレイヤーを追いかける)
                 // プレイヤーの位置をplayer.xとすると
-                const deltaX = player.x - this.x;
+                const deltaX = player.x - this.circle.x;
                 console.log(deltaX);
                 console.debug(deltaX > 0);
                 // 敵がプレイヤーより左にいる場合、右へ移動
