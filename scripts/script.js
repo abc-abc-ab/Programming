@@ -119,9 +119,9 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
 
                 // 敵がプレイヤーより左にいる場合、右へ移動
                 if (deltaX > 0) {
-                    this.draw(this.speed);
+                    this.draw(this.speed, 0);
                 } else {
-                    this.draw(-this.speed);
+                    this.draw(-this.speed, 0);
                 }
             }
         
