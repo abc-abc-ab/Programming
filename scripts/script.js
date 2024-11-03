@@ -151,7 +151,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
         // 初期位置
         [x, y] = [width / 2, height*3 / 4];
         const player = new Circle(ctx, x, y, 10),
-        ai = new Enemy(x, 10, 5);
+        ai = new Enemy(x, 10, 2);
         // アニメーションループ
         let id;
         function draw(){
