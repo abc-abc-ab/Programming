@@ -78,7 +78,7 @@ let bullets = [];
            */
           move(dx, dy){
             [this.x, this.y] = [this.x + dx, this.y + dy];
-            p.textContent = `x: ${this.x},y: ${this.y},dx: ${dx}`;
+            // p.textContent = `x: ${this.x},y: ${this.y},dx: ${dx}`;
             this.ctx.beginPath();
             this.ctx.arc(this.x, this.y, this.r, 0/* rad */, deg2rad(360));
             this.ctx.fill();
@@ -167,8 +167,7 @@ let bullets = [];
         /// --- /// --- /// --- /// --- /// --- Class End
       
         // キャンバスとコンテキストを取得
-        const p = d.querySelector("p"),
-        cnv = d.querySelector("canvas"),
+        const cnv = d.querySelector("canvas"),
         ctx = cnv.getContext("2d"),
         width = cnv.width,
         height = cnv.height;
