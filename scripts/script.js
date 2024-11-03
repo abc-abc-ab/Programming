@@ -124,6 +124,10 @@ let bullets = [];
                 } else {
                     this.draw(-this.speed, 0);
                 }
+                bullets.forEach((v, i, a) => {
+                if(Circle.isColliding(v, this.circle)){
+                    this.takeDamage(30)
+                }});
             }
         
             draw(dX, dY) {
@@ -154,6 +158,7 @@ let bullets = [];
         /* canvas, x, y, radius */
         const player = new Circle(ctx, x, y, 10);
         /* x, radius, speed */
+        /**@type {Enemy} */
         ai = new Enemy(x, 10, 2);
         // アニメーションループ
         let id;
@@ -173,14 +178,19 @@ let bullets = [];
             })()*/
             // 円の移動
             ctx.fillStyle = "#faaf46";
-            ai.update();
+            if(ai.isDead){
+                ai.circle.move();
+            }
+            else {
+                ai.update();
+            };
             if (0 < player.x && player.x < width){
                 ctx.fillStyle = "#10a0ff";
                 player.move(dx, 0);
             }
             else{
                 player.x = width / 2;
-            }
+            };
             id = t.requestAnimationFrame(draw);
         }
         id = t.requestAnimationFrame(draw);
@@ -193,7 +203,7 @@ let bullets = [];
         });cnv.addEventListener("touchend", () => {
           bool = false;
         });cnv.addEventListener("touchmove", (e)=>{
-            const ev = e.touches[0]
+            const ev = e.touches[0];
             if (bool)  
               player.x = ev.clientX * 0.75;
         });
@@ -233,7 +243,7 @@ let bullets = [];
          });
 
          d.getElementById("bullet").addEventListener("click", () => {
-            t.dispatchEvent(new KeyboardEvent("keydown", {key: " "}))
+            t.dispatchEvent(new KeyboardEvent("keydown", {key: " "}));
          })
     } catch (e) {
         alert(e);
