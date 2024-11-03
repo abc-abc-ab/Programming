@@ -1,4 +1,4 @@
-let x, y, dx, ax, ay; // Yes. commit Changesぅぅ!
+let x, y, dx, ax, ay; // Yes. commit Changesぅぅ.
 let ai;
 /**@type {Array<Circle>} */
 let bullets = [];
