@@ -84,7 +84,7 @@ let x, y, dx, ax, ay; // commit Changesぅぅ???
                 }
             }
             else{
-                const abc = asd => Object.prototype.toString(asd);
+                const abc = () => Object.prototype.toString();
                 throw `型はどちらも\`Circle\`でないといけませんが,
                 (${abc.call(circleA)}, ${abc.call(circleB)})
                 です.`;
