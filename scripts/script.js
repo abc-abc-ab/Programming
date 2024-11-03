@@ -1,4 +1,23 @@
 let x, y, dx, ax, ay; // What? commit Changesぅぅ!?
+/**
+ * @typedef {{
+ *    ctx: CanvasRenderingContext2D,
+ *    x: number,
+ *    y: number,
+ *    r: number,
+ *    move: (dx: number, dy: number) => void
+ * }} Player
+ * @typedef {{
+ *    circle: Player,
+ *    speed: number,
+ *    hp: number = 100,
+ *    isDead: bool = false
+ *    update: () => void,
+ *    draw: (dx: number, dy: number) => void,
+ *    takeDamage: (damage: number) => number
+ * }} AI 
+ * @type {AI}
+ */
 let ai;
 /**@type {Array<Circle>} */
 let bullets = [];
@@ -140,6 +159,7 @@ let bullets = [];
                     this.hp = 0;
                     this.isDead = true;
                 }
+                return this.hp;
             }
         }
         /// --- /// --- /// --- /// --- /// ---
