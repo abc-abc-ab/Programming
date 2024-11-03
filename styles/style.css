@@ -4,3 +4,8 @@ canvas{
   height: 200px;
   border: solid #f00;
 }
+
+button{
+  width: 100px;
+  height: 200px;
+}
