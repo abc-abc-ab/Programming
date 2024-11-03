@@ -138,7 +138,7 @@ let bullets = [];
                 const deltaX = player.x - this.circle.x;
 
                 // 敵がプレイヤーより左にいる場合、右へ移動
-                if (deltaX < 0) {
+                if (deltaX < 0 && this.circle.x > 0) {
                     this.draw(this.speed, 0);
                 } else {
                     this.draw(-this.speed, 0);
