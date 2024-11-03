@@ -117,7 +117,8 @@ let ai;
                 // 敵のAIを実装する部分 (例: プレイヤーを追いかける)
                 // プレイヤーの位置をplayer.xとすると
                 const deltaX = player.x - this.x;
-
+                console.log(deltaX);
+                console.debug(deltaX > 0);
                 // 敵がプレイヤーより左にいる場合、右へ移動
                 if (deltaX > 0) {
                     this.draw(this.speed, 0);
