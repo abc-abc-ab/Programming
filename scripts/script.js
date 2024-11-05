@@ -1,10 +1,11 @@
         /**
-         * @typedef {{
+        * @typedef {{
         *    ctx: CanvasRenderingContext2D,
         *    x: number,
         *    y: number,
         *    r: number,
-        *    move: (dx: number, dy: number) => void
+        *    move: (dx: number, dy: number) => void,
+        *    __proto__: Function
         * }} Player
         * @typedef {{
         *    circle: Player,
@@ -14,6 +15,7 @@
         *    update: () => void,
         *    draw: (dx: number, dy: number) => void,
         *    takeDamage: (damage: number) => number
+        *    __proto__: Function
         * }} AI 
         * @type {AI}
         */
@@ -24,7 +26,7 @@
         /**@type {Array<Circle>} */
         let bullets = [];
         [dx, ax, ay] = [0,0,0];
-        
+
         // ラジアンと度の相互変換関数
         /** @param {number} rad */
         const rad2deg = rad => (rad / Math.PI) * 180;
@@ -140,7 +142,7 @@
                 };
                 bullets.forEach((v, i, a) => {
                 if(Circle.isColliding(v, this.circle)){
-                    this.takeDamage(30)
+                    this.takeDamage(BULLET_DAMAGE);
                 }});
             }
         
@@ -166,7 +168,10 @@
         ctx = cnv.getContext("2d"),
         width = cnv.width,
         height = cnv.height,
-        CIRCLE_RADIUS = 10;
+        CIRCLE_RADIUS = 10,
+        ENEMY_SPEED = 2,
+        BULLET_SPEED = 3,
+        BULLET_DAMAGE = 30;
 
         // 初期位置
         [x, y] = [width / 2, height*3 / 4];
@@ -174,7 +179,7 @@
         const player = new Circle(ctx, x, y, CIRCLE_RADIUS);
         /* x, radius, speed */
         /**@type {Enemy} */
-        ai = new Enemy(x, CIRCLE_RADIUS, 2);
+        ai = new Enemy(x, CIRCLE_RADIUS, ENEMY_SPEED);
         // アニメーションループ
         let id;
         function draw(){
@@ -227,7 +232,7 @@
             } else if (e.key === "ArrowRight") {
                 dx = 4;
             } else if (e.key === " ") {
-                shoot(cnv, player.x, player.y, 0, -3);
+                shoot(cnv, player.x, player.y, 0, -BULLET_SPEED);
             }
          });
          t.addEventListener("keyup", (e) => {
