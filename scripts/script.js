@@ -158,6 +158,18 @@
                 }
                 return this.hp;
             }
+        };
+
+        class Player extends Circle{
+            /**
+             * @param {CanvasRenderingContext2D} context
+             * @param {number} X
+             * @param {number} Y
+             * @param {number} R
+             */
+            constructor(context, X, Y, R){
+                super(context, X, Y, R);
+            }
         }
         /// --- /// --- /// --- /// --- /// ---
         /// --- /// --- /// --- /// --- /// ---
@@ -176,7 +188,7 @@
         // 初期位置
         [x, y] = [width / 2, height*3 / 4];
         /* canvas, x, y, radius */
-        const player = new Circle(ctx, x, y, CIRCLE_RADIUS);
+        const player = new Player(ctx, x, y, CIRCLE_RADIUS);
         /* x, radius, speed */
         /**@type {Enemy} */
         ai = new Enemy(x, CIRCLE_RADIUS, ENEMY_SPEED);

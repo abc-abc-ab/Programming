@@ -4,6 +4,6 @@
     style = d.querySelector("style");
 
     style.textContent = `div{
-    transform: translate(45deg)
+    transform: rotate(45deg)
 }`;
 })(document, window)
