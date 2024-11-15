@@ -3,6 +3,7 @@ div{
     height: 75px;
     /* change X x Y !! */
     background-color: #f00;
+    /* 1s TO 10s */
     animation: walk 10s linear 0s infinite;
 }
 /* Add @keyframes */
