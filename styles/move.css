@@ -3,4 +3,19 @@ div{
     height: 75px;
     /* change X x Y !! */
     background-color: #f00;
+    animation: walk 1s linear 0s infinite;
+}
+
+@keyframes walk{
+    from{
+        transform: translateX(0);
+    }
+
+    50%{
+        background-color: #10a0ff;
+    }
+
+    to{
+        transform: translateX(754vw);
+    }
 }
