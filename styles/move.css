@@ -4,7 +4,7 @@ div{
     /* change X x Y !! */
     background-color: #f00;
     /* 1s TO 10s */
-    animation: walk 10s linear 0s infinite;
+    animation: walk 10s linear 2s infinite;
 }
 /* Add @keyframes */
 @keyframes walk{
