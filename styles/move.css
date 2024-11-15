@@ -16,7 +16,7 @@ div{
         background-color: #10a0ff;
     }
 
-    to{
+    to{/* 754vw TO 75vw */
         transform: translateX(75vw);
     }
 }
