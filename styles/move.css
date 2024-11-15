@@ -5,7 +5,7 @@ div{
     background-color: #f00;
     animation: walk 1s linear 0s infinite;
 }
-
+/* Add @keyframes */
 @keyframes walk{
     from{
         transform: translateX(0);
