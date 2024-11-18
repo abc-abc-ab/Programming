@@ -3,7 +3,7 @@ div{
     height: 75px;
     /* change X x Y !! */
     background-color: #f00;
-    /* 1s TO 10s TO 3s | 0s TO 2s */
+    /* 1s TO 10s **TO 3s** | 0s TO 2s */
     animation: walk 3s linear 2s infinite;
 }
 
