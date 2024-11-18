@@ -17,6 +17,6 @@ div{
     }
 
     to{/* 754vw TO 75vw TO 75% */
-        transform: translateX(75%);
+        transform: translateX(1rem);
     }
 }
